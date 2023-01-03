@@ -52,7 +52,7 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-        $builder->connect('/sample', ['controller' => 'Sample', 'action' => 'index', 'sample']);
+        $builder->connect('/xxx', ['controller' => 'Sample', 'action' => 'index', 'sample']);
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
@@ -89,4 +89,14 @@ return static function (RouteBuilder $routes) {
      * });
      * ```
      */
+
+     $routes->scope('/api', function (RouteBuilder $builder) {
+        // No $builder->applyMiddleware() here.
+
+        // Parse specified extensions from URLs
+        $builder->setExtensions(['json', 'xml']);
+        $builder->connect('/yyy', ['controller' => 'Sample', 'action' => 'api']);
+        // Connect API actions here.
+
+    });
 };
