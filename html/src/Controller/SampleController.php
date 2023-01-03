@@ -8,9 +8,12 @@
 
         public function index()
         {
+            $resultset = $this->fetchTable('Articles')->find()->all();
+
             $text = 'sample page';
     
             $this->set('text',$text);
+            $this->set('item',$resultset);
         }
     }
 
