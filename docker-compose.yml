@@ -16,9 +16,18 @@ services:
     image: mysql:5.7
     volumes:
       - "./db:/docker-entrypoint-initdb.d"
+    ports:
+     - 3306:3306
     environment:
       MYSQL_DATABASE: sampledb
       MYSQL_USER: sample-user
       MYSQL_PASSWORD: 12345678
       MYSQL_ROOT_PASSWORD: 12345678
+  
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    volumes:
+      - "./data/redis:/data"
       
