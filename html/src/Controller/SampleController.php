@@ -22,8 +22,8 @@
                 $this->set('text','none');
             }
 
-            $resultset = $this->fetchTable('Articles')->find()->all();
-
+            $resultset = $this->fetchTable('Articles')->getArt();
+    
             $text = 'sample page';
     
             
