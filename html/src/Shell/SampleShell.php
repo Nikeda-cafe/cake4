@@ -4,7 +4,6 @@ namespace App\Shell;
 
 use Cake\Console\Shell;
 use Cake\Datasource\ModelAwareTrait;
-use Cake\ORM\TableRegistry;
 class SampleShell extends Shell
 {
     use ModelAwareTrait;

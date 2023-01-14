@@ -3,6 +3,7 @@
 
     use App\Controller\AppController;
     use Cake\Cache\Cache;
+    use App\Service\SampleService;
 
     class SampleController extends AppController
     {
@@ -22,7 +23,9 @@
                 $this->set('text','none');
             }
 
-            $resultset = $this->fetchTable('Articles')->getArt();
+            $instance = new SampleService();
+
+            $resultset = $instance->xxx();
     
             $text = 'sample page';
     
