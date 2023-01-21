@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Cake\Core\Configure;
 use App\Controller\AppController;
 
 class BaseController extends AppController
@@ -16,4 +17,12 @@ class BaseController extends AppController
 		$serviceClass = 'App\Service\\'. $className . 'Service';
 		$this->service = new $serviceClass($serviceClass);
 	}
+
+    // テーマ分け
+    public function beforeRender(\Cake\Event\EventInterface $event)
+    {
+        if ($this->request->is('mobile')){
+            $this->viewBuilder()->setTheme(Configure::read('theme'));
+        }
+    }
 }
