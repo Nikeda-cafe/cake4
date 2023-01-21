@@ -18,7 +18,7 @@ class MoviesTable extends Table
             'title' => 'First post',
             'content' => 'Some body text',
             'stars' => 4,
-            'created' => date('Y-m-d'),
+            'created' => date('Y-m-d G:i:s'),
         ];
         $query = $this->query();
         $query->insert($colums);
