@@ -4,12 +4,15 @@ namespace App\Shell;
 
 use Cake\Console\Shell;
 use Cake\Datasource\ModelAwareTrait;
-class SampleShell extends Shell
+
+/**
+ * @property \App\Model\Table\MoviesTable $Movies
+ */
+
+class SampleShell extends BaseShell
 {
-    use ModelAwareTrait;
     public function main()
     {
-        $this->loadModel('Movies');
         $this->out('これはサンプルです。');
         $result = $this->Movies->insertMovieSample();
         if($result){
