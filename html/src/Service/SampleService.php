@@ -1,15 +1,16 @@
 <?php
 namespace App\Service;
 
-use Cake\Datasource\ModelAwareTrait;
+/**
+ * @property \App\Model\Table\ArticlesTable $Articles
+ * @property \App\Model\Table\MoviesTable $Movies
+ */
 
-class SampleService{
-    use ModelAwareTrait;
+class SampleService extends BaseService
+{
     public function xxx()
     {
-        $this->loadModel('Articles');
-        $returnData = $this->Articles->getArt();
-
-        return $returnData;
+        $xxx = $this->Articles->getArt();
+        return $xxx;
     }
 }
