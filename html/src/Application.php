@@ -66,6 +66,7 @@ class Application extends BaseApplication
         // Load more plugins here
         $this->addPlugin('Migrations');
         $this->addPlugin('Migrations');
+        $this->addPlugin('Mobile'); // ←追加
     }
 
     /**

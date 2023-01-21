@@ -50,4 +50,14 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+
+    // テーマ分け
+    public function beforeRender(\Cake\Event\EventInterface $event)
+    {
+        if ($this->request->is('mobile')){
+            $this->viewBuilder()->setTheme('Mobile');
+        }
+    }
+
+
 }
