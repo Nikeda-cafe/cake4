@@ -7,15 +7,16 @@ module.exports = {
     watch: true,
     mode: 'production',
     entry: {
-        main: './html/webroot/src/js/app.js',
+        'base': './html/webroot/src/js/app.js',
+        'mobile/base': './html/webroot/src/mobile/js/app.js',
     },
     output: {
         path: path.resolve(__dirname,'html/webroot'),
-        filename: 'js/bundle.js'
+        filename: 'js/[name].min.js'
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/bundle.min.css',
+            filename: 'css/[name].min.css',
         }),
         require('autoprefixer')
     ],
@@ -36,7 +37,7 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new TerserPlugin(), 
+            new TerserPlugin({extractComments: false}),
             new CssMinimizerPlugin(),
         ],
     },

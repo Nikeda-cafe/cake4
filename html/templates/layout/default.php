@@ -29,8 +29,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'bundle.min']) ?>
-    <?= $this->Html->script(['bundle',]) ?>
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'base.min']) ?>
+    <?= $this->Html->script(['base.min',]) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
