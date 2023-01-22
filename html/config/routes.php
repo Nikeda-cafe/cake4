@@ -82,6 +82,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/:region/:pg', 'Sample::index')
                 ->setPatterns(['pg' => '\d+'])
                 ->setPass(['region', 'pg']);
+        $builder->post('/post', 'Sample::post');
         $builder->fallbacks();
     });
 

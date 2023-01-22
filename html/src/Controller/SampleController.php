@@ -30,5 +30,10 @@
             $resultset = $this->fetchTable('Articles')->find()->all();
             $this->set(['item'=>$resultset,'_serialize' => ['item']]);
         }
+
+        public function post()
+        {
+
+        }
     }
 

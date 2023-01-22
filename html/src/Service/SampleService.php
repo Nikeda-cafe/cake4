@@ -6,6 +6,9 @@ namespace App\Service;
  * @property \App\Model\Table\MoviesTable $Movies
  */
 
+ use Cake\Validation\Validator;
+
+
 class SampleService extends BaseService
 {
     public function xxx($pg = 1)
@@ -14,5 +17,9 @@ class SampleService extends BaseService
         return $xxx;
     }
 
+    public function post()
+    {
+
+    }
 
 }
