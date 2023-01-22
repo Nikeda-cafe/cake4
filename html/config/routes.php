@@ -77,9 +77,11 @@ return static function (RouteBuilder $routes) {
 
     $routes->scope('/xxx', function (RouteBuilder $builder) {
         $builder->connect('/', 'Sample::index');
-        $builder->connect('/:pg', 'Sample::index')
+        $builder->connect('/:region', 'Sample::index')
+                ->setPass(['region']);
+        $builder->connect('/:region/:pg', 'Sample::index')
                 ->setPatterns(['pg' => '\d+'])
-                ->setPass(['pg']);
+                ->setPass(['region', 'pg']);
         $builder->fallbacks();
     });
 

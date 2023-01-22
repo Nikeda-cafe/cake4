@@ -12,28 +12,17 @@
     class SampleController extends BaseController
     {
 
-        public function index($pg = 1)
+        public function index()
         {
-            // Cache::write("2000", 1515);
-            $redis_read = Cache::read("2000");
-
-            //読みだしたキャッシュが有効か
-
-            $x = $this->request->getQuery();
-            if($x){
-                $this->set('text',$x['xxx']);
-            }else{
-                $this->set('text','none');
-            }
-
+            $pg = $this->request->getParam('pg') ?? 1;
+            $region = $this->request->getParam('region') ?? '';
 
             $resultset = $this->service->xxx($pg);
 
             $text = 'sample page';
 
-
             $this->set('item',$resultset);
-            $this->set('cache',$redis_read);
+            $this->set('text',$text);
         }
         public function api()
         {
