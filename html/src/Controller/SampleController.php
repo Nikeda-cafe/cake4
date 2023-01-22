@@ -20,11 +20,15 @@
             $resultset = $this->service->xxx($pg);
 
             $text = 'sample page';
-            $movieEntity = $this->service->getMovieEntity();
+            $movieEntity = $this->service->getMoviesEntity();
             $movie = $movieEntity->newEmptyEntity();
             if ($this->request->is('post')) {
                 $movie = $movieEntity->patchEntity($movie, $this->request->getData());
-                $result = $this->service->save($this->request->getData());
+                if($movie->hasErrors()){
+
+                }else{
+                    $result = $this->service->save($this->request->getData());
+                }
             }
 
             $this->set('item',$resultset);

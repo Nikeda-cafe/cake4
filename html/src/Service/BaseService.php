@@ -41,4 +41,15 @@ class BaseService {
     {
         return $this->loadModel($name);
     }
+
+    public function getMoviesEntity()
+    {
+        return $this->Movies;
+    }
+
+    public function getAArticlesEntity()
+    {
+        return $this->Movies;
+    }
+
 }

@@ -17,11 +17,6 @@ class SampleService extends BaseService
         return $xxx;
     }
 
-    public function getMovieEntity()
-    {
-        return $this->Movies;
-    }
-
     public function save(array $data)
     {
         $this->Movies->insertData($data);
