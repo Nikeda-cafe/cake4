@@ -58,7 +58,7 @@ class MembersTable extends Table
             ->scalar('name')
             ->maxLength('name', 255)
             ->requirePresence('name', 'create')
-            ->notEmptyString('name');
+            ->notEmptyString('name','このフィールドに入力してください');
 
         $validator
             ->email('email')

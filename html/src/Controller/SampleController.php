@@ -20,9 +20,16 @@
             $resultset = $this->service->xxx($pg);
 
             $text = 'sample page';
+            $movieEntity = $this->service->getMovieEntity();
+            $movie = $movieEntity->newEmptyEntity();
+            if ($this->request->is('post')) {
+                $movie = $movieEntity->patchEntity($movie, $this->request->getData());
+                $result = $this->service->save($this->request->getData());
+            }
 
             $this->set('item',$resultset);
             $this->set('text',$text);
+            $this->set(compact('movie'));
         }
         public function api()
         {
@@ -31,9 +38,5 @@
             $this->set(['item'=>$resultset,'_serialize' => ['item']]);
         }
 
-        public function post()
-        {
-
-        }
     }
 

@@ -39,4 +39,27 @@ class MoviesTable extends Table
 
         return $result;
     }
+
+    public function insertData(array $data)
+    {
+
+        $colums = [
+            'title',
+            'content',
+            'stars',
+            'created',
+        ];
+        $values = [
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'stars' => 4,
+            'created' => date('Y-m-d G:i:s'),
+        ];
+        $query = $this->query();
+        $query->insert($colums);
+        $query->values($values);
+        $result = $query->execute();
+
+        return $result;
+    }
 }
