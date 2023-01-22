@@ -12,9 +12,8 @@
     class SampleController extends BaseController
     {
 
-        public function index()
+        public function index($pg = 1)
         {
-
             // Cache::write("2000", 1515);
             $redis_read = Cache::read("2000");
 
@@ -28,7 +27,7 @@
             }
 
 
-            $resultset = $this->service->xxx();
+            $resultset = $this->service->xxx($pg);
 
             $text = 'sample page';
 

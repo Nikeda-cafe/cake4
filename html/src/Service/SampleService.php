@@ -8,9 +8,11 @@ namespace App\Service;
 
 class SampleService extends BaseService
 {
-    public function xxx()
+    public function xxx($pg = 1)
     {
-        $xxx = $this->Articles->getArt();
+        $xxx = $this->Articles->getArt($pg);
         return $xxx;
     }
+
+
 }

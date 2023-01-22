@@ -52,7 +52,8 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-        $builder->connect('/xxx', ['controller' => 'Sample', 'action' => 'index', 'sample']);
+        $builder->connect('/xxx/:region/:pg', 'Sample::index');
+
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
@@ -71,6 +72,14 @@ return static function (RouteBuilder $routes) {
          * You can remove these routes once you've connected the
          * routes you want in your application.
          */
+        $builder->fallbacks();
+    });
+
+    $routes->scope('/xxx', function (RouteBuilder $builder) {
+        $builder->connect('/', 'Sample::index');
+        $builder->connect('/:pg', 'Sample::index')
+                ->setPatterns(['pg' => '\d+'])
+                ->setPass(['pg']);
         $builder->fallbacks();
     });
 

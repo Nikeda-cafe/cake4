@@ -8,7 +8,7 @@ use Cake\ORM\TableRegistry;
 
 class ArticlesTable extends Table
 {
-    public function getArt()
+    public function getArt($pg = 1)
     {
         $builder = TableRegistry::getTableLocator()->get('Articles');
         $query = $builder->find();
@@ -33,6 +33,8 @@ class ArticlesTable extends Table
         $query->whereInList('Articles.id',Configure::read('TempArray'));
         $query->where(['Articles.is_deleted =' => Configure::read('NoDeletedFlag')]);
         $query->group(['Articles.id']);
+        $query->limit(1);
+        $query->page($pg);
         $result = $query->toList();
 
         return $result;
