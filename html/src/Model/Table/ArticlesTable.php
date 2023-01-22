@@ -4,21 +4,36 @@ namespace App\Model\Table;
 use Cake\Core\Configure;
 use Cake\ORM\Table;
 use Cake\ORM\Locator\LocatorAwareTrait;
+use Cake\ORM\TableRegistry;
 
 class ArticlesTable extends Table
 {
     public function getArt()
     {
+        $builder = TableRegistry::getTableLocator()->get('Articles');
+        $query = $builder->find();
         $columns = [
-            'id',
-            'title'
+            'Articles.id',
+            'articles_title' => 'Articles.title',
+            'tag_name' => $query->func()->group_concat(['Tags.title' => 'identifier'])
         ];
-        $builder = $this->find();
-        $builder->select($columns);
-        $builder->where(['id =' => 1]);
-        $builder->where(['is_deleted =' => Configure::read('noDeletedFlag')]);
-        $builder->order(['created' => 'DESC']);
-        $result = $builder->toList();
+        $query->select($columns);
+        $query->join([
+            'ArticlesTags' => [
+                'table' => 'articles_tags',
+                'type' => 'LEFT',
+                'conditions' => 'ArticlesTags.article_id = Articles.id',
+            ],
+            'Tags' => [
+                'table' => 'tags',
+                'type' => 'INNER',
+                'conditions' => 'ArticlesTags.tag_id = Tags.id',
+            ]
+        ]);
+        $query->whereInList('Articles.id',Configure::read('TempArray'));
+        $query->where(['Articles.is_deleted =' => Configure::read('NoDeletedFlag')]);
+        $query->group(['Articles.id']);
+        $result = $query->toList();
 
         return $result;
     }

@@ -1,5 +1,5 @@
 <?php echo $text; ?>
 <?php echo $cache; ?>
 <?php foreach($item as $i): ?>
-    <p class="xxx"><?php echo $i->title; ?></p>
+    <span class="xxx"><?php echo $i->title; ?></span><span class="xxx"><?php echo $i->tag_name; ?></span>
 <?php endforeach; ?>

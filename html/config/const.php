@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'noDeletedFlag' => 0,
-    'deletedFlag' => 1,
-
+    'NoDeletedFlag' => 0,
+    'DeletedFlag' => 1,
+    'TempArray' => [
+        '1','2'
+    ]
 ];
