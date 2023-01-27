@@ -11,9 +11,11 @@
 
     class SampleController extends BaseController
     {
-
         public function index()
         {
+            $this->loadComponent('Math');
+            $y = $this->Math->doComplexOperation(1,2);
+            var_dump($y);
             $pg = $this->request->getParam('pg') ?? 1;
             $region = $this->request->getParam('region') ?? '';
 
