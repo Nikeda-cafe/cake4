@@ -5,7 +5,7 @@
     use Cake\Cache\Cache;
 
     /**
-     * @property \App\Service\SampleService $service
+     * @property \App\Controller\Component\SampleComponent $component
      * @property \App\Model\Table\MoviesTable $Movies
      */
 
@@ -13,29 +13,15 @@
     {
         public function index()
         {
-            $this->loadComponent('Math');
-            $y = $this->Math->doComplexOperation(1,2);
-            var_dump($y);
+            $z = $this->component->sampleOperation(4,5);
             $pg = $this->request->getParam('pg') ?? 1;
             $region = $this->request->getParam('region') ?? '';
 
-            $resultset = $this->service->xxx($pg);
+            $resultset = $this->component->xxx($pg);
 
-            $text = 'sample page';
-            $movieEntity = $this->service->getMoviesEntity();
-            $movie = $movieEntity->newEmptyEntity();
-            if ($this->request->is('post')) {
-                $movie = $movieEntity->patchEntity($movie, $this->request->getData());
-                if($movie->hasErrors()){
-
-                }else{
-                    $result = $this->service->save($this->request->getData());
-                }
-            }
-
+            $this->set('text',$z);
             $this->set('item',$resultset);
-            $this->set('text',$text);
-            $this->set(compact('movie'));
+
         }
         public function api()
         {

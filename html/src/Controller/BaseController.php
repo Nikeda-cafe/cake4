@@ -9,13 +9,13 @@ class BaseController extends AppController
 {
     public function initialize(): void
     {
-        $this->setService();
+        $this->setComponet();
     }
-    private function setService()
+    private function setComponet()
 	{
 		$className = $this->request->getParam('controller');
-		$serviceClass = 'App\Service\\'. $className . 'Service';
-		$this->service = new $serviceClass($serviceClass);
+
+        $this->component = $this->loadComponent($className);
 	}
 
     // テーマ分け

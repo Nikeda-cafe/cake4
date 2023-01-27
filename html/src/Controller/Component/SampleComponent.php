@@ -3,11 +3,24 @@
 namespace App\Controller\Component;
 
 use Cake\Controller\Component;
+use Cake\Datasource\ModelAwareTrait;
 
-class SampleComponent extends Component
+/**
+ * @property \App\Model\Table\ArticlesTable $Articles
+ * @property \App\Model\Table\MoviesTable $Movies
+ */
+
+class SampleComponent extends BaseComponent
 {
-    public function doComplexOperation($amount1, $amount2)
+    public function sampleOperation($x, $y)
     {
-        return $amount1 + $amount2;
+        return $x * $y;
+    }
+
+    public function xxx($pg = 1)
+    {
+        $this->loadModel('Articles');
+        $xxx = $this->Articles->getArt($pg);
+        return $xxx;
     }
 }
