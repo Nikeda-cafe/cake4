@@ -2,8 +2,7 @@
 
 namespace App\Controller\Component;
 
-use Cake\Controller\Component;
-use Cake\Datasource\ModelAwareTrait;
+use App\Controller\Component\BaseComponent;
 
 /**
  * @property \App\Model\Table\ArticlesTable $Articles

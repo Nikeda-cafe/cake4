@@ -10,7 +10,9 @@ class BaseController extends AppController
     public function initialize(): void
     {
         $this->setComponet();
-        $this->loadComponent('Entity');
+        $this->loadComponent('Entity', [
+            'className' => 'Common/Entity'
+        ]);
     }
     private function setComponet()
 	{

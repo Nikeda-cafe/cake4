@@ -21,20 +21,20 @@
 
             $resultset = $this->component->xxx($pg);
 
-            $movieEntity = $this->Entity->getMoviesEntity();
-            $movie = $movieEntity->newEmptyEntity();
-            if ($this->request->is('post')) {
-                $movie = $movieEntity->patchEntity($movie, $this->request->getData());
-                if($movie->hasErrors()){
+            // $movieEntity = $this->Entity->getMoviesEntity();
+            // $movie = $movieEntity->newEmptyEntity();
+            // if ($this->request->is('post')) {
+            //     $movie = $movieEntity->patchEntity($movie, $this->request->getData());
+            //     if($movie->hasErrors()){
 
-                }else{
-                    $result = $this->service->save($this->request->getData());
-                }
-            }
+            //     }else{
+            //         $result = $this->service->save($this->request->getData());
+            //     }
+            // }
 
             $this->set('text',$z);
             $this->set('item',$resultset);
-            $this->set(compact('movie'));
+            // $this->set(compact('movie'));
 
         }
         public function api()

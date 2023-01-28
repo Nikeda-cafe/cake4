@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Controller\Component;
+namespace App\Controller\Component\Common;
 
 use Cake\Controller\Component;
 use Cake\Datasource\ModelAwareTrait;
+use App\Controller\Component\BaseComponent;
 
 class EntityComponent extends BaseComponent
 {
