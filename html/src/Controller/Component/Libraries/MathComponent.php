@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controller\Component;
+namespace App\Controller\Component\Libraries;
 
 use Cake\Controller\Component;
+use App\Controller\Component\BaseComponent;
 
-class MathComponent extends Component
+class MathComponent extends BaseComponent
 {
     public function doComplexOperation($amount1, $amount2)
     {
