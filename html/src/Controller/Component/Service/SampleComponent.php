@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Component;
+namespace App\Controller\Component\Service;
 
 use App\Controller\Component\BaseComponent;
 

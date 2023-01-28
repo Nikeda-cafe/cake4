@@ -19,8 +19,8 @@ class SampleShell extends BaseShell
             'stars',
         ];
         $values = [
-            'title' => 'shell-title',
-            'content' => 'shell-content',
+            'title' => 'タイトル',
+            'content' => 'こんてんと',
             'stars' => 4,
         ];
         $this->out('これはサンプルです。');
