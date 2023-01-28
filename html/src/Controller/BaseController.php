@@ -14,7 +14,7 @@ class BaseController extends AppController
     private function setService()
 	{
 		$className = $this->request->getParam('controller');
-        $this->Service = $this->loadComponent($className, ['className' => 'Service/'.$className]);
+        $this->Service = $this->loadComponent($className, ['className' => 'Services/'.$className]);
 	}
 
     // テーマ分け

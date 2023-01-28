@@ -1,11 +1,11 @@
 <?php
-    namespace App\Controller;
+    namespace App\Controller\Component\Services;
 
     use App\Controller\BaseController;
     use Cake\Cache\Cache;
 
     /**
-     * @property \App\Controller\Component\Service\SampleComponent $Service
+     * @property \App\Controller\Component\Services\SampleComponent $Service
      * @property \App\Model\Table\MoviesTable $Movies
      */
 
