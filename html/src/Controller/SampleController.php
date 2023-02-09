@@ -13,10 +13,6 @@
     {
         public function index()
         {
-            $this->loadComponent('Math', ['className' => 'Libraries/Math']);
-            $w = $this->Math->doComplexOperation(4,5);
-
-
             $z = $this->Service->sampleOperation(4,5);
 
             $pg = $this->request->getParam('pg') ?? 1;
@@ -24,7 +20,7 @@
 
             $resultset = $this->Service->xxx($pg);
 
-            $this->set('w',$w);
+            $this->set('w',$z);
             $this->set('text',$z);
             $this->set('item',$resultset);
 
