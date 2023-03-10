@@ -4,8 +4,17 @@
     <span class="xxx"><?php echo $i->title; ?></span><span class="xxx"><?php echo $i->tag_name; ?></span>
 <?php endforeach; ?>
 <br>
+<?php print_r($item2); ?>
 <?php foreach($item2 as $j): ?>
-    <span><?php echo $j->title; ?></span>
+    <span><?php echo $j; ?></span>
 <?php endforeach; ?>
 <p><a href="/xxx/pg/2/">ghkgkkhg</a></p>
+
+<div>
+
+    <form action="/xxx/post" method="post">
+        vdsv<input name="aaa" type="text">
+        <input type="submit" value="post">
+    </form>
+</div>
 

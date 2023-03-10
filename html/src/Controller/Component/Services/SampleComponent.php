@@ -24,9 +24,13 @@ class SampleComponent extends BaseComponent
     {
         $this->loadModel('Articles');
         $xxx = $this->Articles->getArt($pg);
-        $yy = $this->Articles->find()->all();
+        $yy = $this->Articles->getTitle();
+        $z = [];
+        foreach($yy as $v){
+            array_push($z,$v->articles_title);
+        }
         $return['xxx'] = $xxx;
-        $return['yy'] = $yy;
+        $return['yy'] = $z;
         return $return;
     }
 }

@@ -32,5 +32,13 @@
             $this->set(['item'=>$resultset,'_serialize' => ['item']]);
         }
 
+        public function post()
+        {
+            $this->request->getData();
+            var_dump($this->request->getData());
+            die;
+            // $this->Service->post();
+        }
+
     }
 

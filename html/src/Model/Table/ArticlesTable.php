@@ -39,4 +39,17 @@ class ArticlesTable extends Table
 
         return $result;
     }
+
+    public function getTitle()
+    {
+        $builder = TableRegistry::getTableLocator()->get('Articles');
+        $query = $builder->find();
+        $columns = [
+            'articles_title' => 'Articles.title',
+        ];
+        $query->select($columns);
+        $query->where(['Articles.is_deleted =' => Configure::read('NoDeletedFlag')]);
+        $result = $query->toList();
+        return $result;
+    }
 }
