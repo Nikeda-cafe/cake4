@@ -24,6 +24,9 @@ class SampleComponent extends BaseComponent
     {
         $this->loadModel('Articles');
         $xxx = $this->Articles->getArt($pg);
-        return $xxx;
+        $yy = $this->Articles->find()->all();
+        $return['xxx'] = $xxx;
+        $return['yy'] = $yy;
+        return $return;
     }
 }
