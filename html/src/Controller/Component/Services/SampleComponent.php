@@ -33,4 +33,21 @@ class SampleComponent extends BaseComponent
         $return['yy'] = $z;
         return $return;
     }
+
+    public function registPost(array $post)
+    {
+        $this->loadModel('Samples');
+        $entity = $this->Samples->newEmptyEntity();
+        $entity->name = $post['aaa'];
+        $entity->text = 'text';
+        $entity->age = 24;
+        $entity->mail_address = 'fsfs@vsv';
+        $entity->created = date('Ymd');
+
+        if ($this->Samples->save($entity)) {
+            // $article エンティティーは今や id を持っています
+            $id = $entity->id;
+        }
+        return $id ?? '';
+    }
 }

@@ -34,10 +34,9 @@
 
         public function post()
         {
-            $this->request->getData();
-            var_dump($this->request->getData());
-            die;
-            // $this->Service->post();
+            $posts = $this->request->getData();
+
+            $this->Service->registPost($posts);
         }
 
     }

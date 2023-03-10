@@ -11,7 +11,6 @@
 <p><a href="/xxx/pg/2/">ghkgkkhg</a></p>
 
 <div>
-
     <form action="/xxx/post" method="post">
         vdsv<input name="aaa" type="text">
         <input type="submit" value="post">
