@@ -8,7 +8,7 @@ use Cake\ORM\TableRegistry;
 
 class ArticlesTable extends Table
 {
-    public function getArt($pg = 1)
+    public function getArticles($pg = 1)
     {
         $builder = TableRegistry::getTableLocator()->get('Articles');
         $query = $builder->find();

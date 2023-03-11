@@ -4,6 +4,7 @@ namespace App\Controller\Component\Services;
 
 use App\Controller\Component\BaseComponent;
 use App\Controller\Component\Libraries\MathComponent;
+use App\Controller\Component\Libraries\ValidationComponent;
 use Cake\Controller\ComponentRegistry;
 use Cake\Validation\Validator;
 
@@ -25,7 +26,7 @@ class SampleComponent extends BaseComponent
     public function xxx($pg = 1)
     {
         $this->loadModel('Articles');
-        $xxx = $this->Articles->getArt($pg);
+        $xxx = $this->Articles->getArticles($pg);
         $yy = $this->Articles->getTitle();
         $z = [];
         foreach($yy as $v){
@@ -39,33 +40,25 @@ class SampleComponent extends BaseComponent
     public function registPost(array $post)
     {
         $this->loadModel('Samples');
-        $validator = new Validator();
-        $validator
-        ->requirePresence('aaa')
-        ->notEmptyString('aaa', 'このフィールドに入力してください')
-        ->add('aaa', [
-            'length' => [
-                'rule' => ['minLength', 10],
-                'message' => 'タイトルは 10 文字以上必要です',
-            ]
-        ]);
-        $errors = $validator->validate($post);
+        $entity = $this->Samples->newEmptyEntity();
+        $this->Validator = new ValidationComponent(new ComponentRegistry());
+        $errors = $this->Validator->titleValidation($post);
+
         if (empty($errors)) {
-            $entity = $this->Samples->newEmptyEntity();
             $entity->name = $post['aaa'];
             $entity->text = 'text';
             $entity->age = 24;
             $entity->mail_address = 'fsfs@vsv';
             $entity->created = date('Ymd');
 
-
             if ($this->Samples->save($entity)) {
                 // $article エンティティーは今や id を持っています
                 $id = $entity->id;
+                $this->redirect([]);
             }
             return $id ?? '';
         }else{
-            var_dump($errors);die;
+
             return $errors;
         }
     }

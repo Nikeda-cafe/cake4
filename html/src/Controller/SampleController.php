@@ -36,7 +36,8 @@
         {
             $posts = $this->request->getData();
 
-            $this->Service->registPost($posts);
+            $result = $this->Service->registPost($posts);
+            return $this->redirect(['action' => 'index']);
         }
 
     }
