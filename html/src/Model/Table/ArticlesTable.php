@@ -2,15 +2,14 @@
 namespace App\Model\Table;
 
 use Cake\Core\Configure;
-use Cake\ORM\Table;
+use App\Model\Table\BaseTable;
 use Cake\ORM\Locator\LocatorAwareTrait;
-use Cake\ORM\TableRegistry;
 
-class ArticlesTable extends Table
+class ArticlesTable extends BaseTable
 {
     public function getArticles($pg = 1)
     {
-        $builder = TableRegistry::getTableLocator()->get('Articles');
+        $builder = $this->getBuilder();
         $query = $builder->find();
         $columns = [
             'Articles.id',
@@ -42,7 +41,7 @@ class ArticlesTable extends Table
 
     public function getTitle()
     {
-        $builder = TableRegistry::getTableLocator()->get('Articles');
+        $builder = $this->getBuilder();
         $query = $builder->find();
         $columns = [
             'articles_title' => 'Articles.title',
