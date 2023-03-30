@@ -3,7 +3,6 @@ namespace App\Model\Table;
 
 use Cake\Core\Configure;
 use App\Model\Table\BaseTable;
-use Cake\ORM\Locator\LocatorAwareTrait;
 
 class ArticlesTable extends BaseTable
 {

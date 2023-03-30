@@ -24,6 +24,7 @@
             $this->set('text',$z);
             $this->set('item',$resultset['xxx']);
             $this->set('item2',$resultset['yy']);
+            $this->set('item3',$resultset['zz']);
 
         }
         public function api()

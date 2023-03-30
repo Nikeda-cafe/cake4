@@ -8,5 +8,9 @@
 <?php foreach($item2 as $j): ?>
     <span><?php echo $j; ?></span>
 <?php endforeach; ?>
+<?php foreach($item3 as $x): ?>
+    <p><?php echo $x['id']; ?>:<?php echo $x['name']; ?></p>
+<?php endforeach; ?>
+
 <p><a href="/xxx/pg/2/">ghkgkkhg</a></p>
 

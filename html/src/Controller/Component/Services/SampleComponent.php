@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
 /**
  * @property \App\Model\Table\ArticlesTable $Articles
  * @property \App\Model\Table\MoviesTable $Movies
+ * @property \App\Model\Table\SamplesTable $Samples
  */
 
 class SampleComponent extends BaseComponent
@@ -26,14 +27,18 @@ class SampleComponent extends BaseComponent
     public function xxx($pg = 1)
     {
         $this->loadModel('Articles');
+        $this->loadModel('Samples');
         $xxx = $this->Articles->getArticles($pg);
         $yy = $this->Articles->getTitle();
+        $zz = $this->Samples->getIdName();
+        dd($zz);
         $z = [];
         foreach($yy as $v){
             array_push($z,$v->articles_title);
         }
         $return['xxx'] = $xxx;
         $return['yy'] = $z;
+        $return['zz'] = $zz;
         return $return;
     }
 
