@@ -26,7 +26,7 @@ class SampleShell extends BaseShell
         $this->out('これはサンプルです。');
         $result = $this->Movies->insertData($colums, $values);
         if($result){
-            $this->out('これは成功です');
+            $this->success('これは成功です');
         }else{
             $this->out('これは失敗です。');
         }

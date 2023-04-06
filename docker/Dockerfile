@@ -7,6 +7,6 @@ RUN apt-get update \
     && a2enmod rewrite \
     && apt-get clean \
     && rm -fr /var/lib/apt/lists/*
-    && git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
-    && docker-php-ext-install redis
+    # && git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
+    # && docker-php-ext-install redis
 
