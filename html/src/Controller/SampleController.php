@@ -2,8 +2,8 @@
     namespace App\Controller;
 
     use App\Controller\BaseController;
-    use Cake\Cache\Cache;
-
+    use App\Controller\Component\Libraries\CacheComponent;
+    use Cake\Controller\ComponentRegistry;
     /**
      * @property \App\Controller\Component\Services\SampleComponent $Service
      * @property \App\Model\Table\MoviesTable $Movies
@@ -39,6 +39,13 @@
 
             $result = $this->Service->registPost($posts);
             return $this->redirect(['action' => 'index']);
+        }
+
+        public function cache()
+        {
+            $this->Cache = new CacheComponent(new ComponentRegistry());
+            $ca = $this->Cache->get('s');
+            dd($ca);
         }
 
     }

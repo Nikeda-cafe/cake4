@@ -5,6 +5,7 @@ namespace App\Controller\Component\Services;
 use App\Controller\Component\BaseComponent;
 use App\Controller\Component\Libraries\MathComponent;
 use App\Controller\Component\Libraries\ValidationComponent;
+use App\Controller\Component\Libraries\CacheComponent;
 use Cake\Controller\ComponentRegistry;
 use Cake\Validation\Validator;
 
@@ -31,14 +32,18 @@ class SampleComponent extends BaseComponent
         $xxx = $this->Articles->getArticles($pg);
         $yy = $this->Articles->getTitle();
         $zz = $this->Samples->getIdName();
-        dd($zz);
+        $this->Cache = new CacheComponent(new ComponentRegistry());
+        $this->Cache->set('s',$yy);
+
         $z = [];
         foreach($yy as $v){
             array_push($z,$v->articles_title);
         }
+        $cache = $this->Cache->get('s');
+        // dd($cache);
         $return['xxx'] = $xxx;
         $return['yy'] = $z;
-        $return['zz'] = $zz;
+        $return['zz'] = $cache;
         return $return;
     }
 

@@ -53,6 +53,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
         $builder->connect('/xxx/:region/:pg', 'Sample::index');
+        $builder->connect('/ca', 'Sample::cache');
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
