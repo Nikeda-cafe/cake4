@@ -54,6 +54,8 @@ return static function (RouteBuilder $routes) {
 
         $builder->connect('/xxx/:region/:pg', 'Sample::index');
         $builder->connect('/ca', 'Sample::cache');
+        $builder->get('/file', 'Sample::file');
+        $builder->post('/file', 'Sample::filePost');
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.

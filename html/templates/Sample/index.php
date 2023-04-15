@@ -3,6 +3,9 @@
 <?php foreach($item as $i): ?>
     <span class="xxx"><?php echo $i->title; ?></span><span class="xxx"><?php echo $i->tag_name; ?></span>
 <?php endforeach; ?>
+<template>
+    <div>mkdlbmdlkm</div>
+</template>
 <br>
 <?php print_r($item2); ?>
 <?php foreach($item2 as $j): ?>

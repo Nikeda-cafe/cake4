@@ -41,6 +41,23 @@
             return $this->redirect(['action' => 'index']);
         }
 
+        public function file()
+        {
+            $this->render();
+        }
+
+        public function filePost()
+        {
+            if ($this->request->is('post')) {
+                $myFile = $this->request->getData('my_file');
+                $name = $myFile->getClientFilename();
+                $path = WWW_ROOT . 'upload' . DS . $name;
+                // dd($name);
+                // dd($path);
+                $myFile->moveTo($path);
+              }
+        }
+
         public function cache()
         {
             $this->Cache = new CacheComponent(new ComponentRegistry());
